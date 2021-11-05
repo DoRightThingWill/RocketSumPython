@@ -158,10 +158,163 @@ sliced6 =  (1,2,4,4,5,6)[::-1]
 # this slice operator can work with any collection basically
 ```
 
+## Set && Dict
+```python
+# set is unsorted, containing unique elements
+x = set() # this is an empty set
+
+y = {}
+print(type(y)) # you find this is a dict, rather than a set
+
+# but you could create a set with this
+s =  {2,3,4,4,4}
+
+print(s)
+
+# thus, if you want to craate an empty set, you need the set constructor set()
+s.remove(4)
+print(s)
+print(4 in s) # running time of this is constant, compared with a list
+
+s2 = {4,5,6,6,6,7}
+
+print(s.union(s2))
+print(s.difference(s2))
+print(s.intersection(s2))
+
+```
+
+```python
+x = {'key' : 4}
+y = {'key' : [2,3,4]}
+# for a dict, the value type is flexible
+print(x['key'])
+x['key2'] = 5
+# the key type is flexible as well
+x[2] = 8 # here 2 is not index, but a key
+x[3] =  [4,5,6]
+
+print(x)
+# operations for a dict
+print('key' in x)
+print(x.values()) # fetch all values from a dict
+print(list(x.values()))
+print(list(x.keys()))
+# to delete a key pair
+del x[2]
+print(x)
+# iteration
+for key, value in x.items() :
+    print(key, value)
+
+for key in x:
+    print(x, x[key])
+```
+
+## Comprehension
+one line initiation of a list or a tuple, or a dict
+```python
+x = [x for x in range(5)]
+# define a for loop in the list
+
+x = [x+5 for x in range(5)]
+x = [x %5 for x in range(5)]
+x = [0 for x in range(5)]
+
+y = [[1 for x in range(5)] for x in range(5)] 
+
+m = [i for i range(100) if i % 5 ==0]
+n = [i:1 for i range(100) if i % 5 ==0]
+```
+
+## function
+```python
+def func(x,y):
+    print('go')
+    return x+2, y+3
+
+func(3,4)
+
+m, n = func(4,5)
+print(m, n)
+
+# for a function in python, the execution block can not be empty, if for some reason, you are not sure what to put there, leave a 'pass' to avoid any error
+
+def func2():
+    pass
+```
+
+## *args && **kwargs
+```python
+# if you are not sure how many args you are going to have for a function, you could use *args a parameters. the function will fetch the element one by one accordingly
+
+def func1(x, y):
+    print(x, y)
+
+test = [(1,2),(3,4)]
+
+for pair in test:
+    func1(*pair)
 
 
+def func2(*args, **kwargs):
+    print(args, kwargs)
 
+func2(1,2,3,4,5, one=1, two=2)
 
+```
+## Exception
 
+```python
+raise Exception('test exception')
 
+# this is a general exception
+# you could specify one as you want
 
+try:
+    m = 7 / 0
+except Exception as e:
+    print(e)
+finally:
+    # will run eventually no matter what happen
+    print('finally')
+```
+## Lambda function
+one line anonymous function
+
+```python
+x = lambda x: x + 3
+# this is not a suggested version to use it
+print(x(2))
+y = lambda x, y: x * y
+print(x(2,3))
+
+```
+## Map && Filter
+```python
+x = [1,2,4,45,5,65,6,7,78,8]
+mp = map(lambda i: i+2, x)
+# this map() returns a map object
+print(list(mp))
+
+# map is used to change all elements
+fl = filter(lambda i: i & 2 == 0, x)
+
+print(list(fl))
+
+def func(i):
+    return i % 2 == 0
+# filter is used to extract some elements meeting certain requirement
+fl2 = filter(func, x)
+print(fl2)
+
+```
+
+## F string
+
+```python
+# F or f is both ok
+x = f'hello { 6+ 8}'
+# f string support reference or functions, variables, via embedding them into {}
+print(x)
+```
