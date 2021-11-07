@@ -51,6 +51,9 @@ Core advantage of python is how simple it is, how easy the syntax is to read, an
 * `string.count()`, e.g. `hello.count('o')` this is case sensitive
 * string concatenation `print(hello + world)`
 
+* convert a char to int `ord('a')`
+* convert an int to char `chr('15')`
+
 ## if/elif/else 
 
 ```python
