@@ -53,6 +53,7 @@ Core advantage of python is how simple it is, how easy the syntax is to read, an
 
 * convert a char to int `ord('a')`
 * convert an int to char `chr('15')`
+* string.join(collection). here string is used as the separator. `','.join(list)`
 
 ## if/elif/else 
 
@@ -74,7 +75,12 @@ else :
 ## List && Tuples
 * list, length is dynamic
 
+
+
 ```python
+one_list = list('abc', 'efg') 
+# list() is a list constructor
+
 this_list = [1,2,3]
 this_list.append(4)
 print(this_list)
