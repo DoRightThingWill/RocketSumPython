@@ -54,6 +54,30 @@ Core advantage of python is how simple it is, how easy the syntax is to read, an
 * convert a char to int `ord('a')`
 * convert an int to char `chr('15')`
 * string.join(collection). here string is used as the separator. `','.join(list)`
+* capitalize the first letter of a string
+```python
+def fixMessage(message):
+    return message.capitalize()
+```
+
+* split a string into list
+```python
+s = "welcome to the jungle"
+x = s.split()
+print(x)
+
+# you could specify the separator
+txt = "apple#banana#cherry#orange"
+
+x = txt.split("#")
+
+print(x)
+```
+
+* replace a letter in the string with another letter
+```python
+string.replace("letter", "b")
+```
 
 ## if/elif/else 
 
@@ -218,6 +242,20 @@ for key, value in x.items() :
 
 for key in x:
     print(x, x[key])
+
+dict.get(key, value)
+# if the key does not exist, then return this default value
+# this is useful to initiate the first value
+# e.g, track the frequency of letters in a string
+
+x = 'abcdcefabcdabc'
+
+letter_fre = {}
+
+for letter in x:
+    letter_fre[letter] = letter_free.get(letter, 0) + 1
+    # if the letter does not exist in the dict, the get() return 0 and then plus one
+
 ```
 
 ## Comprehension
@@ -326,4 +364,55 @@ print(fl2)
 x = f'hello { 6+ 8}'
 # f string support reference or functions, variables, via embedding them into {}
 print(x)
+```
+
+## Class
+```python
+class node :
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+# the init must be __init__, can not be _init_
+def _private_metho (self, x):
+    # a single leading underscore is generally used to mean "private method, please do not use"
+    
+```
+
+## Tricky Points
+* collection truth-ness
+```python
+xs = [()]
+if xs:
+    # check if the xs is empty
+    print('a)
+if xs[0]:
+    print('b)
+```
+
+* comparison
+```python
+# check if x power (y) in the range of (L, R]
+if L < x ** y <= R:
+
+# get bit length of an int
+a = 100
+print(a.bit_length())
+
+```
+* Extended Iterable Unpacking
+```python
+a, *b, c = range(5)
+print(a) # 0
+print(b) #[1,2,3]
+print(c) #4
+
+# traditionally, in this way
+first, rest = seq[0], seq[1:]
+# now, in this way
+first, *rest = seq
+
+first, *rest, last = seq
+
+
 ```
