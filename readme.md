@@ -357,6 +357,23 @@ print(fl2)
 
 ```
 
+map(function, iterable) in python
+a function could be a customized function or a built-in function
+e.g.
+```python
+nums = [1,2,3,4,5,6,7]
+
+nums_str = list(map(str, nums))
+
+nums_len = list(map(len, nums_str))
+
+# iterable, lets say, it could be a list, tuple, string, map, set..
+# iterator, more like a pointer. the key feature is Moving and Fetching (NEXT) value
+# map() return a map object, which is an iterator (a pointer representing a stream of data)
+
+```
+
+
 ## F string
 
 ```python
